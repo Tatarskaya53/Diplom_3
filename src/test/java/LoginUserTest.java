@@ -1,4 +1,5 @@
 import config.Config;
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,31 +10,34 @@ import pages.RegisterPageElements;
 import user.UserClient;
 
 
-public class LoginUserTest extends BaseTest{
+public class LoginUserTest extends BaseTest {
 
     @Before
-    public void createUser(){
+    @Step("Создание пользователя")
+    public void createUser() {
         UserClient userClient = new UserClient();
         userClient.createUniqueUser(user);
         System.out.println("UserCreated");
     }
 
     @Test
-    @DisplayName("Enter a login page throw a reg button")
-    public void loginThrowRegButtonTest(){
+    @DisplayName("Вход по кнопке «Войти в аккаунт» на главной")
+    @Step("Вход в аккаунт")
+    public void loginThrowRegButtonTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);
         driver.get(Config.BASE_URL);
         mainPage.clickRegButton();
         loginPage.putUserEmail(user.getEmail())
-                 .putUserPass(user.getPassword())
-                 .clickRegButton();
+                .putUserPass(user.getPassword())
+                .clickRegButton();
         mainPage.waitLoadPage();
     }
 
     @Test
-    @DisplayName("Enter a login page throw an account button")
-    public void loginThrowAccountButtonTest(){
+    @DisplayName("Вход по кнопке «Личный кабинет»")
+    @Step("Вход в аккаунт")
+    public void loginThrowAccountButtonTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);
         driver.get(Config.BASE_URL);
@@ -45,8 +49,9 @@ public class LoginUserTest extends BaseTest{
     }
 
     @Test
-    @DisplayName("Enter a login page throw a reg page")
-    public void loginFromRegisterPageTest(){
+    @DisplayName("Вход через кнопку в форме регистрации")
+    @Step("Вход в аккаунт")
+    public void loginFromRegisterPageTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         RegisterPageElements registerPage = new RegisterPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);
@@ -59,8 +64,9 @@ public class LoginUserTest extends BaseTest{
     }
 
     @Test
-    @DisplayName("Enter a login page throw a recovery password page")
-    public void loginFromForgotPasswordPageTest(){
+    @DisplayName("Вход через кнопку в форме восстановления пароля")
+    @Step("Вход в аккаунт")
+    public void loginFromForgotPasswordPageTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);
         ForgotPasswordPageElements forgotPasswordPage = new ForgotPasswordPageElements(driver);

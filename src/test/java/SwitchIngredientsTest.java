@@ -1,5 +1,6 @@
 import config.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
@@ -9,11 +10,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.MainPageElements;
 
-public class SwitchIngredientsTest{
+public class SwitchIngredientsTest {
 
     WebDriver driver;
 
     @Before
+    @Step("Запуск браузера")
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -22,19 +24,21 @@ public class SwitchIngredientsTest{
     }
 
     @After
+    @Step("Завершение работы браузера")
     public void teardown() {
-         driver.quit();
+        driver.quit();
     }
 
     @Test
-    @DisplayName("Switch constructor main buttons")
+    @DisplayName("Проверка переходов м/д разделами булки/соусы/начинки")
+    @Step("Проверка переходов")
     public void switchConstructorMainButtonsTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         mainPage.clickSauceButton();
-        Assert.assertEquals("�����", mainPage.getActiveButtonText());
+        Assert.assertEquals("Соусы", mainPage.getActiveButtonText());
         mainPage.clickFillingButton();
-        Assert.assertEquals("�������", mainPage.getActiveButtonText());
+        Assert.assertEquals("Начинки", mainPage.getActiveButtonText());
         mainPage.clickBunButton();
-        Assert.assertEquals("�����", mainPage.getActiveButtonText());
+        Assert.assertEquals("Булки", mainPage.getActiveButtonText());
     }
 }

@@ -3,6 +3,7 @@ package pages;
 import config.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 public class RegisterPageElements {
 
     WebDriver driver;
@@ -14,12 +15,12 @@ public class RegisterPageElements {
 
     public static final String REGISTER = Config.BASE_URL + "/register";
 
-    public final By nameField = By.xpath(".//fieldset[1]//input[@name='name']"); // Поле ввода "Имя"
-    public final By emailField = By.xpath(".//fieldset[2]//input[@name='name']"); // Поле ввода "Email"
-    public final By passwordField = By.xpath(".//input[@name='Пароль']"); // Поле ввода "Пароль"
-    public final By regButton = By.xpath(".//button[text()='Зарегистрироваться']"); // Кнопка "Зарегистрироваться"
-    public final By invalidPasswordError = By.xpath(".//p[text()='Некорректный пароль']");  // Локатор ошибки "Некорректный пароль"
-    public final By enterButton = By.xpath(".//a[text()='Войти']"); // Кнопка "Войти" (внизу страницы)
+    public final By nameField = By.xpath(".//fieldset[1]//input[@name='name']"); // РџРѕР»Рµ РІРІРѕРґР° "РРјСЏ"
+    public final By emailField = By.xpath(".//fieldset[2]//input[@name='name']"); // РџРѕР»Рµ РІРІРѕРґР° "Email"
+    public final By passwordField = By.xpath(".//input[@name='РџР°СЂРѕР»СЊ']"); // РџРѕР»Рµ РІРІРѕРґР° "РџР°СЂРѕР»СЊ"
+    public final By regButton = By.xpath(".//button[text()='Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ']"); // РљРЅРѕРїРєР° "Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ"
+    public final By invalidPasswordError = By.xpath(".//p[text()='РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РїР°СЂРѕР»СЊ']");  // Р›РѕРєР°С‚РѕСЂ РѕС€РёР±РєРё "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РїР°СЂРѕР»СЊ"
+    public final By enterButton = By.xpath(".//a[text()='Р’РѕР№С‚Рё']"); // РљРЅРѕРїРєР° "Р’РѕР№С‚Рё" (РІРЅРёР·Сѓ СЃС‚СЂР°РЅРёС†С‹)
 
     public RegisterPageElements putUserName(String userName) {
         driver.findElement(nameField).sendKeys(userName);
@@ -40,10 +41,12 @@ public class RegisterPageElements {
         driver.findElement(regButton).click();
         return this;
     }
+
     public String invalidPasswordErrorText() {
         String errorText = driver.findElement(invalidPasswordError).getText();
         return errorText;
     }
+
     public RegisterPageElements clickEnterButton() {
         driver.findElement(enterButton).click();
         return this;

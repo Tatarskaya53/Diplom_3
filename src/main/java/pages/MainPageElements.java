@@ -14,35 +14,41 @@ public class MainPageElements {
 
         this.driver = driver;
     }
-    public final By mainPageText = By.xpath(".//h1[text()='Соберите бургер']"); // Хедер "Соберите бургер"
-    public final By logInAccountButton = By.xpath(".//button[text()='Войти в аккаунт']"); // Кнопка "Войти в аккаунт"
-    public final By personalAccountButton = By.xpath(".//p[text()='Личный Кабинет']"); // Кнопка "Личный Кабинет"
-    public final By bunButton = By.xpath("//*[@id='root']//*/div[1]/span"); // Кнопка "Булки"
-    public final By sauceButton = By.xpath("//*[@id='root']//*/div[2]/span"); // Кнопка "Соусы"
-    public final By fillingButton = By.xpath("//*[@id='root']//*/div[3]/span"); // Кнопка "Начинки"
-    public final By activeButtonSelector = By.xpath(".//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span"); // Селектор активной кнопки
+
+    public final By mainPageText = By.xpath(".//h1[text()='РЎРѕР±РµСЂРёС‚Рµ Р±СѓСЂРіРµСЂ']"); // РҐРµРґРµСЂ "РЎРѕР±РµСЂРёС‚Рµ Р±СѓСЂРіРµСЂ"
+    public final By logInAccountButton = By.xpath(".//button[text()='Р’РѕР№С‚Рё РІ Р°РєРєР°СѓРЅС‚']"); // РљРЅРѕРїРєР° "Р’РѕР№С‚Рё РІ Р°РєРєР°СѓРЅС‚"
+    public final By personalAccountButton = By.xpath(".//p[text()='Р›РёС‡РЅС‹Р№ РљР°Р±РёРЅРµС‚']"); // РљРЅРѕРїРєР° "Р›РёС‡РЅС‹Р№ РљР°Р±РёРЅРµС‚"
+    public final By bunButton = By.xpath("//*[@id='root']//*/div[1]/span"); // РљРЅРѕРїРєР° "Р‘СѓР»РєРё"
+    public final By sauceButton = By.xpath("//*[@id='root']//*/div[2]/span"); // РљРЅРѕРїРєР° "РЎРѕСѓСЃС‹"
+    public final By fillingButton = By.xpath("//*[@id='root']//*/div[3]/span"); // РљРЅРѕРїРєР° "РќР°С‡РёРЅРєРё"
+    public final By activeButtonSelector = By.xpath(".//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span"); // РЎРµР»РµРєС‚РѕСЂ Р°РєС‚РёРІРЅРѕР№ РєРЅРѕРїРєРё
 
 
     public void waitLoadPage() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(mainPageText));
     }
+
     public MainPageElements clickRegButton() {
         driver.findElement(logInAccountButton).click();
         return this;
     }
+
     public MainPageElements clickAccountButton() {
         driver.findElement(personalAccountButton).click();
         return this;
     }
+
     public MainPageElements clickBunButton() {
         driver.findElement(bunButton).click();
         return this;
     }
+
     public MainPageElements clickSauceButton() {
         driver.findElement(sauceButton).click();
         return this;
     }
+
     public MainPageElements clickFillingButton() {
         driver.findElement(fillingButton).click();
         return this;

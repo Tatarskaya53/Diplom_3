@@ -18,10 +18,10 @@ public class LoginPageElements {
 
     public static final String LOGIN = Config.BASE_URL + "/login";
 
-    public final By emailField = By.xpath(".//input[@name='name']"); // Поле ввода "Email"
-    public final By passwordField = By.xpath(".//input[@name='Пароль']"); // Поле ввода "Пароль"
-    public final By enterButton = By.xpath(".//button[text()='Войти']"); // Конопка "Войти"
-    public final By loginPageText = By.xpath(".//h2[text()='Вход']"); // Хедер "Вход"
+    public final By emailField = By.xpath(".//input[@name='name']"); // РџРѕР»Рµ РІРІРѕРґР° "Email"
+    public final By passwordField = By.xpath(".//input[@name='РџР°СЂРѕР»СЊ']"); // РџРѕР»Рµ РІРІРѕРґР° "РџР°СЂРѕР»СЊ"
+    public final By enterButton = By.xpath(".//button[text()='Р’РѕР№С‚Рё']"); // РљРѕРЅРѕРїРєР° "Р’РѕР№С‚Рё"
+    public final By loginPageText = By.xpath(".//h2[text()='Р’С…РѕРґ']"); // РҐРµРґРµСЂ "Р’С…РѕРґ"
 
 
     public LoginPageElements putUserEmail(String userEmail) {
@@ -33,6 +33,7 @@ public class LoginPageElements {
         driver.findElement(passwordField).sendKeys(userPass);
         return this;
     }
+
     public LoginPageElements clickRegButton() {
         driver.findElement(enterButton).click();
         return this;

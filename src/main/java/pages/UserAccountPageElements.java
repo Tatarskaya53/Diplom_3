@@ -11,9 +11,10 @@ public class UserAccountPageElements {
         this.driver = driver;
     }
 
-    public final By constructorButton = By.xpath(".//p[text()='Конструктор']"); // кнопка "Конструктор"
-    public final By stellarBurgersLogo = By.xpath(".//div[@class='AppHeader_header__logo__2D0X2']/a"); // локатор логотипа
-    public final By buttonLogOut = By.xpath(".//button[text()='Выход']"); // кнопка "Выход"
+    public final By constructorButton = By.xpath(".//p[text()='РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ']"); // РєРЅРѕРїРєР° "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ"
+    public final By stellarBurgersLogo = By.xpath(".//div[@class='AppHeader_header__logo__2D0X2']/a"); // Р»РѕРєР°С‚РѕСЂ Р»РѕРіРѕС‚РёРїР°
+    public final By buttonLogOut = By.xpath(".//button[text()='Р’С‹С…РѕРґ']"); // РєРЅРѕРїРєР° "Р’С‹С…РѕРґ"
+
     public UserAccountPageElements clickConstructorButton() {
         driver.findElement(constructorButton).click();
         return this;

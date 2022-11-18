@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ public class BaseTest {
     User user;
 
     @Before
+    @Step("Запуск браузера")
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -22,6 +24,7 @@ public class BaseTest {
     }
 
     @After
+    @Step("Завершение работы браузера")
     public void teardown() {
         driver.quit();
         try {

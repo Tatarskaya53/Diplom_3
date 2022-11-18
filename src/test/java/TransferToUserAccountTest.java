@@ -1,4 +1,5 @@
 import config.Config;
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,8 +8,9 @@ import pages.MainPageElements;
 import user.UserClient;
 
 
-public class TransferToUserAccountTest extends BaseTest{
+public class TransferToUserAccountTest extends BaseTest {
     @Before
+    @Step("Создание пользователя")
     public void createUser() {
         UserClient userClient = new UserClient();
         userClient.createUniqueUser(user);
@@ -16,7 +18,8 @@ public class TransferToUserAccountTest extends BaseTest{
     }
 
     @Test
-    @DisplayName("Transfer to user account from main page")
+    @DisplayName("Переход в личный кабинет с главной страницы")
+    @Step("Переход в личный кабинет")
     public void transferToUserAccountTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);

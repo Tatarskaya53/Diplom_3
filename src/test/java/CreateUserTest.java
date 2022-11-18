@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import pages.LoginPageElements;
@@ -5,10 +6,11 @@ import pages.RegisterPageElements;
 
 import static org.junit.Assert.assertEquals;
 
-public class CreateUserTest extends BaseTest{
+public class CreateUserTest extends BaseTest {
 
     @Test
-    @DisplayName("Registration a user with valid data")
+    @DisplayName("Регистрация пользователя с валидными данными")
+    @Step("Регистрация пользователя")
     public void registrationWithValidUserData() {
         LoginPageElements loginPage = new LoginPageElements(driver);
         RegisterPageElements registerPage = new RegisterPageElements(driver);
@@ -24,7 +26,8 @@ public class CreateUserTest extends BaseTest{
     }
 
     @Test
-    @DisplayName("Registration a user with invalid data")
+    @DisplayName("Регистрация пользователя с невалидным паролем")
+    @Step("Регистрация пользователя")
     public void registrationWithInvalidUserData() {
         RegisterPageElements registerPage = new RegisterPageElements(driver);
         driver.get(registerPage.REGISTER);
@@ -35,6 +38,6 @@ public class CreateUserTest extends BaseTest{
                 .putUserPass(user.getPassword())
                 .clickRegButton();
 
-        assertEquals("������������ ������", registerPage.invalidPasswordErrorText());
+        assertEquals("Некорректный пароль", registerPage.invalidPasswordErrorText());
     }
 }

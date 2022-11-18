@@ -14,7 +14,7 @@ public class ForgotPasswordPageElements {
 
     public static final String FORGOT_PASSWORD = Config.BASE_URL + "/forgot-password";
 
-    public final By enterButton = By.xpath(".//a[text()='Войти']"); // Активная строка "Войти"
+    public final By enterButton = By.xpath(".//a[text()='Р’РѕР№С‚Рё']"); // РђРєС‚РёРІРЅР°СЏ СЃС‚СЂРѕРєР° "Р’РѕР№С‚Рё"
 
     public ForgotPasswordPageElements clickEnterButton() {
         driver.findElement(enterButton).click();
