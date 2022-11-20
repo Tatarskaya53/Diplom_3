@@ -1,5 +1,4 @@
 import config.Config;
-import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,16 +12,13 @@ import user.UserClient;
 public class LoginUserTest extends BaseTest {
 
     @Before
-    @Step("Создание пользователя")
     public void createUser() {
         UserClient userClient = new UserClient();
         userClient.createUniqueUser(user);
-        System.out.println("UserCreated");
     }
 
     @Test
     @DisplayName("Вход по кнопке «Войти в аккаунт» на главной")
-    @Step("Вход в аккаунт")
     public void loginThrowRegButtonTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);
@@ -36,7 +32,6 @@ public class LoginUserTest extends BaseTest {
 
     @Test
     @DisplayName("Вход по кнопке «Личный кабинет»")
-    @Step("Вход в аккаунт")
     public void loginThrowAccountButtonTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);
@@ -50,7 +45,6 @@ public class LoginUserTest extends BaseTest {
 
     @Test
     @DisplayName("Вход через кнопку в форме регистрации")
-    @Step("Вход в аккаунт")
     public void loginFromRegisterPageTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         RegisterPageElements registerPage = new RegisterPageElements(driver);
@@ -65,7 +59,6 @@ public class LoginUserTest extends BaseTest {
 
     @Test
     @DisplayName("Вход через кнопку в форме восстановления пароля")
-    @Step("Вход в аккаунт")
     public void loginFromForgotPasswordPageTest() {
         MainPageElements mainPage = new MainPageElements(driver);
         LoginPageElements loginPage = new LoginPageElements(driver);

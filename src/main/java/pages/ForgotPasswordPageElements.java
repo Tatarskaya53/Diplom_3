@@ -1,6 +1,7 @@
 package pages;
 
 import config.Config;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,6 +17,7 @@ public class ForgotPasswordPageElements {
 
     public final By enterButton = By.xpath(".//a[text()='Войти']"); // Активная строка "Войти"
 
+    @Step("Клик строки 'Войти' на странице восстановления пароля")
     public ForgotPasswordPageElements clickEnterButton() {
         driver.findElement(enterButton).click();
         return this;

@@ -1,4 +1,3 @@
-import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +9,6 @@ import user.UserClient;
 public class TransferFromUserAccountTest extends BaseTest {
 
     @Before
-    @Step("Создание и логин пользователя")
     public void createUser() {
         UserClient userClient = new UserClient();
         MainPageElements mainPage = new MainPageElements(driver);
@@ -27,7 +25,6 @@ public class TransferFromUserAccountTest extends BaseTest {
 
     @Test
     @DisplayName("Переход из личного кабинета в конструктор по клику на «Конструктор»")
-    @Step("Переход из личного кабинета в конструктор")
     public void clickConstructorButton() {
         UserAccountPageElements userAccountPage = new UserAccountPageElements(driver);
         MainPageElements mainPage = new MainPageElements(driver);
@@ -37,7 +34,6 @@ public class TransferFromUserAccountTest extends BaseTest {
 
     @Test
     @DisplayName("Переход из личного кабинета в конструктор по клику на логотип Stellar Burgers")
-    @Step("Переход из личного кабинета в конструктор")
     public void clickMainLogo() {
         UserAccountPageElements userAccountPage = new UserAccountPageElements(driver);
         MainPageElements mainPage = new MainPageElements(driver);
